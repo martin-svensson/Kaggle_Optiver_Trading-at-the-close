@@ -57,9 +57,9 @@ df_training = calculate_imbalance_features(data["df_training"])
 df_testing = calculate_imbalance_features(data["df_training"])
 
 #%%
-df_training_X = df_training.query("target.notna()").drop(["row_id", "time_id"], axis = 1)
+df_training_X = df_training.query("target.notna()").drop(["row_id", "time_id", "target"], axis = 1)
 df_training_y = df_training.query("target.notna()")["target"]
-df_testing_X = df_testing.query("target.notna()").drop(["row_id", "time_id"], axis = 1)
+df_testing_X = df_testing.query("target.notna()").drop(["row_id", "time_id", "target"], axis = 1)
 df_testing_y = df_testing.query("target.notna()")["target"]
 
 # -- Fit models
